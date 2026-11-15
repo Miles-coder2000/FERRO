@@ -10,7 +10,10 @@ src-tauri/dev-data/*.db*
 *.msi
 *.nsis
 *.log
+<<<<<<< HEAD
 
 # Centralized logs — track folder structure via .gitkeep, ignore log content
 logs/**/*.log
 !logs/**/.gitkeep
+=======
+>>>>>>> 743870a (feat: initial FERRO launcher project structure)

@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #0B0D10;
+  --color-tungsten: rgba(18, 22, 28, 0.82);
+  --color-steel: #262C36;
+  --color-molten-copper: #E86A24;
+  --color-forge-amber: #FF9E44;
+  --color-cool-cyan: #38BDF8;
+  --color-text-primary: #F1F5F9;
+  --color-text-muted: #8A94A6;
+
+  --font-display: 'Chakra Petch', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  html,
+  body,
+  #app {
+    height: 100%;
+    width: 100%;
+    background-color: #0B0D10;
+    color: #F1F5F9;
+    font-family: var(--font-sans);
+  }
+}
+
+.ferro-panel {
+  background: rgba(18, 22, 28, 0.82);
+  backdrop-filter: blur(16px);
+  border: 1px solid #262C36;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+.ferro-panel-interactive {
+  background: rgba(18, 22, 28, 0.82);
+  backdrop-filter: blur(16px);
+  border: 1px solid #262C36;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.ferro-panel-interactive:hover {
+  border-color: rgba(232, 106, 36, 0.75);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 158, 68, 0.14),
+    0 0 18px rgba(232, 106, 36, 0.18);
+}
+
+.ferro-octagon {
+  clip-path: polygon(16% 0%, 84% 0%, 100% 16%, 100% 84%, 84% 100%, 16% 100%, 0% 84%, 0% 16%);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(11, 13, 16, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262C36;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E86A24;
+}
