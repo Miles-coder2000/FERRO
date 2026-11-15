@@ -1,4 +1,4 @@
-import { createApp } from 'svelte'
 import App from './App.svelte'
 
-createApp(App).mount('#app')
+// Svelte 5: direct mount, no createApp
+mount(App, { target: '#app' })
