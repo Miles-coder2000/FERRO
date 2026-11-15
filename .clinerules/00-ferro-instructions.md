@@ -104,3 +104,5 @@ if ($?) {
 }
 ```
 Confirm `D:/FERRO/src-tauri/target/release/ferro-launcher.exe` compiles cleanly with zero warnings before syncing changes via `@.agent/git-sync.md`.
+
+**Reference:** For detailed operational guidelines and the complete overhaul roadmap, see `@.agent/overhaul-and-features.md`.
