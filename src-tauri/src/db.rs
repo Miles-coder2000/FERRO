@@ -190,7 +190,7 @@ impl Database {
             })?
             .collect::<Result<Vec<_>, _>>()
             .map_err(|e| e.to_string())?;
-        Ok(mut folders)
+        Ok(folders)
     }
 
     pub fn get_contexts(&self) -> Result<Vec<ContextProfile>, String> {
@@ -209,7 +209,7 @@ impl Database {
             })?
             .collect::<Result<Vec<_>, _>>()
             .map_err(|e| e.to_string())?;
-        Ok(mut contexts)
+        Ok(contexts)
     }
 
     pub fn save_context(&self, profile: &ContextProfile) -> Result<(), String> {
@@ -277,4 +277,4 @@ impl Database {
 
         rows.collect::<Result<Vec<_>, _>>().map_err(|e| e.to_string())
     }
-}
+\n\n    pub fn increment_launch_count(&self, path: &str) -> Result<(), String> {\n        self.conn.execute(\n            \"UPDATE apps SET launch_count = launch_count + 1, last_launched = (SELECT CAST(strftime('%s', 'now') AS INTEGER)) WHERE path = ?1\",\n            params![path],\n        ).map_err(|e| e.to_string())?;\n        Ok(())\n    }\n}\n

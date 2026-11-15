@@ -1,7 +1,6 @@
 // Logging support module
 // Links to src/utils/logging.rs and re-exports public API
 
-use std::path::PathBuf;
 mod logging; // Links to src/utils/logging.rs
 
 /// Initialize the tracing subscriber with environment-based filtering.

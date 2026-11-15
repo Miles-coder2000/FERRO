@@ -84,7 +84,7 @@ pub fn extract_icon_cached(target_path: &str, app_cache_dir: &str) -> Result<Str
         bmi.bmiHeader.biCompression = BI_RGB;
         bmi.bmiHeader.biSizeImage = (width as u32 * height as u32 * 4 + 3) & !3;
 
-        let mut bits: Vec<u8> = vec![0; (width as u32 * height as u32 * 4 + 3) & !3];
+        let mut bits: Vec<u8> = vec![0; ((width as u32 * height as u32 * 4 + 3) & !3) as usize];
         let _ = windows_sys::Win32::Graphics::Gdi::GetDIBits(
             hdc,
             shfi.hIcon,

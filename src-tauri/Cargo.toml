@@ -19,6 +19,7 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 tokio = { version = "1", features = ["full"] }
 rusqlite = { version = "0.32", features = ["bundled"] }
+windows-sys = "0.7"
 walkdir = "2.5"
 notify = "6.1"
 sysinfo = "0.32"

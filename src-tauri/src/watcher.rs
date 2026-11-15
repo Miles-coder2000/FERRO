@@ -1,4 +1,3 @@
-use crate::models::FolderUpdatePayload;
 use notify::{Config, Event, RecommendedWatcher, RecursiveMode, Watcher};
 use std::path::Path;
 use std::sync::Mutex;
