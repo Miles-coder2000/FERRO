@@ -59,9 +59,13 @@ pub fn launch_target(
                     cmd.current_dir(parent);
                 }
             }
-            cmd.spawn()
-                .or_else(|_| open::that(&target_path))
-                .map_err(|e| format!("Failed to launch {}: {}", target_path, e))?;
+            match cmd.spawn() {
+                Ok(_) => {}
+                Err(_) => {
+                    open::that(&target_path)
+                        .map_err(|e| format!("Failed to launch {}: {}", target_path, e))?;
+                }
+            }
         }
     }
 
@@ -72,9 +76,13 @@ pub fn launch_target(
         if !args.is_empty() {
             cmd.args(&args);
         }
-        cmd.spawn()
-            .or_else(|_| open::that(&target_path))
-            .map_err(|e| format!("Failed to launch {}: {}", target_path, e))?;
+        match cmd.spawn() {
+            Ok(_) => {}
+            Err(_) => {
+                open::that(&target_path)
+                    .map_err(|e| format!("Failed to launch {}: {}", target_path, e))?;
+            }
+        }
     }
 
     let elapsed_us = start.elapsed().as_micros() as u64;

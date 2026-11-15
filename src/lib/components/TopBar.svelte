@@ -1,12 +1,17 @@
 <script lang="ts">
   import { ferroStore } from '$lib/stores/ferroStore.svelte';
   import { getCurrentWindow } from '@tauri-apps/api/window';
-  import { isTauriRuntime } from '$lib/utils';
-  import logoImg from '$assets/logo.png';
+  import { isTauriRuntime, resolveAssetUrl } from '$lib/utils';
   import {
     Search, Terminal, FolderSearch, Gamepad2,
     Minus, Pin, X, RefreshCw, Cpu, MemoryStick, Zap,
   } from 'lucide-svelte';
+
+  const logoUrl = $derived(
+    isTauriRuntime()
+      ? resolveAssetUrl('src/assets/logo.png')
+      : new URL('../assets/logo.png', import.meta.url).href
+  );
 
   let { searchInputEl = $bindable<HTMLInputElement | null>(null) } = $props();
 
@@ -27,13 +32,14 @@
 </script>
 
 <header
+  role="region"
   onmousedown={handleHeaderMouseDown}
   class="flex flex-col border-b border-[#262C36] bg-[#0B0D10]/90 backdrop-blur-xl select-none"
 >
   <div class="flex items-center justify-between px-4 py-2 border-b border-[#262C36]/70">
     <div class="flex items-center gap-3">
       <img
-        src={logoImg}
+        src={logoUrl}
         alt="FERRO Emblem"
         class="h-6 w-6 rounded-md object-cover border border-[#E86A24]/60 shadow-[0_0_10px_rgba(232,106,36,0.3)]"
       />

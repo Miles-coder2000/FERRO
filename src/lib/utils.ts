@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-export function resolveAssetUrl(path: string): string {
-  return new URL(path, import.meta.url).href;
-}
-=======
 import { convertFileSrc } from '@tauri-apps/api/core';
 
 export function isTauriRuntime(): boolean {
@@ -14,7 +9,15 @@ export function resolveAssetUrl(filePath?: string): string | undefined {
   if (filePath.startsWith('http://') || filePath.startsWith('https://') || filePath.startsWith('data:')) {
     return filePath;
   }
-  return isTauriRuntime() ? convertFileSrc(filePath) : undefined;
+  if (isTauriRuntime()) {
+    return convertFileSrc(filePath);
+  }
+  // Vite dev-mode fallback: resolve assets via import.meta.url
+  try {
+    return new URL(filePath, import.meta.url).href;
+  } catch {
+    return undefined;
+  }
 }
 
 export function formatBytes(bytes: number): string {
@@ -24,4 +27,3 @@ export function formatBytes(bytes: number): string {
   const value = bytes / Math.pow(1024, idx);
   return `${value >= 10 || idx === 0 ? value.toFixed(0) : value.toFixed(1)} ${units[idx]}`;
 }
->>>>>>> 743870a (feat: initial FERRO launcher project structure)

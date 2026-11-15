@@ -1,93 +1,96 @@
-<<<<<<< HEAD
 <script lang="ts">
-  import { ferroStore } from '$lib/stores/ferroStore';
   import { onMount } from 'svelte';
-  import { resolveAssetUrl } from '$lib/utils';
-  import {
-    Search, Terminal, FolderSearch, Minus, Pin, X, RefreshCw, Cpu, MemoryStick, Zap,
-    Flame, FolderKanban, Gamepad2, Layers, Cpu as CpuIcon,
-  } from 'lucide-svelte';
-
-  // Page state
-  let showSearch = $state(false);
-  let searchQuery = $state('');
-  let selectedIndex = $state(0);
-  let activeSector = $state<'HOME' | 'FOLDERS' | 'ARMORY' | 'STACK' | 'CONTEXTS'>('HOME');
-  let isMinimized = $state(false);
-  let isPinnedOnTop = $state(false);
-
-  // Sector definitions
-  const sectors = [
-    { id: 'HOME', label: 'HOME', icon: Flame },
-    { id: 'FOLDERS', label: 'FOLDERS', icon: FolderKanban },
-    { id: 'ARMORY', label: 'ARMORY', icon: Gamepad2 },
-    { id: 'STACK', label: 'STACK', icon: Layers },
-    { id: 'CONTEXTS', label: 'CONTEXTS', icon: Cpu },
-  ];
-</script>
-
-<!doctype html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FERRO - System Launcher</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="bg-[#0B0D10] text-[#F1F5F9] overflow-hidden select-none antialiased">
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
-</html>
-=======
-<script lang="ts">
   import { ferroStore } from '$lib/stores/ferroStore.svelte';
-  import { onMount } from 'svelte';
-  import { resolveAssetUrl } from '$lib/utils';
-  import {
-    Search, Terminal, FolderSearch, Minus, Pin, X, RefreshCw, Cpu, MemoryStick, Zap,
-    Flame, FolderKanban, Gamepad2, Layers, Cpu as CpuIcon,
-  } from 'lucide-svelte';
+  import TopBar from '$lib/components/TopBar.svelte';
+  import Sidebar from '$lib/components/Sidebar.svelte';
+  import ArmoryGrid from '$lib/components/ArmoryGrid.svelte';
+  import FolderMatrix from '$lib/components/FolderMatrix.svelte';
+  import AppDock from '$lib/components/AppDock.svelte';
+  import ContextsPanel from '$lib/components/ContextsPanel.svelte';
 
-  // Page state
-  let showSearch = $state(false);
-  let searchQuery = $state('');
-  let selectedIndex = $state(0);
-  let activeSector = $state<'HOME' | 'FOLDERS' | 'ARMORY' | 'STACK' | 'CONTEXTS'>('HOME');
-  let isMinimized = $state(false);
-  let isPinnedOnTop = $state(false);
+  let searchInputEl: HTMLInputElement | null = null;
 
-  // Sector definitions
-  const sectors = [
-    { id: 'HOME', label: 'HOME', icon: Flame },
-    { id: 'FOLDERS', label: 'FOLDERS', icon: FolderKanban },
-    { id: 'ARMORY', label: 'ARMORY', icon: Gamepad2 },
-    { id: 'STACK', label: 'STACK', icon: Layers },
-    { id: 'CONTEXTS', label: 'CONTEXTS', icon: Cpu },
-  ];
+  onMount(async () => {
+    try {
+      await ferroStore.init();
+    } catch (err) {
+      console.error('Failed to initialize store:', err);
+    }
+  });
+
+  function handleGlobalKeydown(e: KeyboardEvent) {
+    // Ctrl+K / Cmd+K: focus search
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      searchInputEl?.focus();
+    }
+    // Escape: clear search first, then hide on second press
+    if (e.key === 'Escape') {
+      if (ferroStore.searchQuery.trim().length > 0) {
+        e.preventDefault();
+        ferroStore.resetSearch();
+      }
+    }
+  }
 </script>
 
-<!doctype html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FERRO - System Launcher</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="bg-[#0B0D10] text-[#F1F5F9] overflow-hidden select-none antialiased">
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
-</html>
->>>>>>> 743870a (feat: initial FERRO launcher project structure)
+<svelte:window onkeydown={handleGlobalKeydown} />
+
+<div class="h-full w-full bg-[#0B0D10] text-[#F1F5F9] overflow-hidden select-none antialiased">
+  <!-- Top Bar - draggable region -->
+  <TopBar bind:searchInputEl={searchInputEl} />
+  <div class="data-tauri-drag-region" style="-webkit-app-region: drag;"></div>
+
+  <!-- Main Layout: Sidebar + Content -->
+  <div class="flex flex-1 h-full overflow-hidden">
+    <Sidebar />
+
+    <!-- Main Content Area -->
+    <main class="flex-1 h-full overflow-y-auto bg-[#0B0D10] p-4">
+      {#key ferroStore.activeSector}
+        {#if ferroStore.activeSector === 'HOME'}
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div class="lg:col-span-2">
+              <ArmoryGrid compact={false} />
+            </div>
+            <div>
+              <FolderMatrix compact={false} />
+            </div>
+          </div>
+        {:else if ferroStore.activeSector === 'FOLDERS'}
+          <FolderMatrix compact={false} />
+        {:else if ferroStore.activeSector === 'ARMORY'}
+          <ArmoryGrid compact={false} />
+        {:else if ferroStore.activeSector === 'STACK'}
+          <AppDock compact={false} />
+        {:else if ferroStore.activeSector === 'CONTEXTS'}
+          <ContextsPanel />
+        {/if}
+      {/key}
+    </main>
+  </div>
+
+  <!-- Bottom Engine Status Bar -->
+  <div class="h-10 border-t border-[#262C36] bg-[#0B0D10]/80 backdrop-blur flex items-center justify-between px-4 text-[10px] font-mono text-[#8A94A6]">
+    <span class="flex items-center gap-1.5">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#E86A24] animate-pulse"></span>
+      ENGINE: RUST &bull; TAURI 2.0
+    </span>
+    <span>
+      {ferroStore.telemetry.indexed_items_count} indexed &bull;
+      {ferroStore.telemetry.cpu_usage_percent.toFixed(1)}% CPU &bull;
+      {ferroStore.telemetry.ram_usage_mb.toFixed(0)} MB RAM
+    </span>
+  </div>
+</div>
+
+<style>
+  :global([data-tauri-drag-region]) {
+    -webkit-app-region: drag;
+  }
+  :global([data-tauri-drag-region] button),
+  :global([data-tauri-drag-region] input),
+  :global([data-tauri-drag-region] a) {
+    -webkit-app-region: no-drag;
+  }
+</style>

@@ -1,48 +1,7 @@
 <script lang="ts">
-  import { ferroStore } from '$lib/stores/ferroStore.svelte';
-  import type { ContextProfile } from '$lib/types/ferro';
-  import { Cpu, Play, Plus, Trash2, Check, RefreshCw } from 'lucide-svelte';
+  import { Cpu, Plus } from 'lucide-svelte';
 
   let showCreateModal = $state(false);
-  let newName = $state('');
-  let newDesc = $state('');
-  let newShortcut = $state('');
-  let selectedAppIds = $state<string[]>([]);
-  let selectedFolderPaths = $state<string[]>([]);
-
-  function toggleApp(id: string) {
-    selectedAppIds = selectedAppIds.includes(id)
-      ? selectedAppIds.filter((x) => x !== id)
-      : [...selectedAppIds, id];
-  }
-
-  function toggleFolder(path: string) {
-    selectedFolderPaths = selectedFolderPaths.includes(path)
-      ? selectedFolderPaths.filter((x) => x !== path)
-      : [...selectedFolderPaths, path];
-  }
-
-  async function handleCreateContext(e: SubmitEvent) {
-    e.preventDefault();
-    if (!newName.trim()) return;
-
-    const profile: ContextProfile = {
-      id: `ctx-${Date.now()}`,
-      name: newName.trim(),
-      description: newDesc.trim() || 'Custom FERRO environment',
-      app_ids: selectedAppIds,
-      folder_paths: selectedFolderPaths,
-      shortcut_key: newShortcut.trim() || undefined,
-    };
-
-    await ferroStore.saveContext(profile);
-    newName = '';
-    newDesc = '';
-    newShortcut = '';
-    selectedAppIds = [];
-    selectedFolderPaths = [];
-    showCreateModal = false;
-  }
 </script>
 
 <div class="flex flex-col gap-5">

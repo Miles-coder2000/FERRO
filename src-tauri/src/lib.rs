@@ -4,6 +4,7 @@ mod launcher;
 mod models;
 mod telemetry;
 mod watcher;
+mod utils;
 
 use db::Database;
 use std::sync::Mutex;
@@ -14,6 +15,9 @@ use watcher::WatcherState;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+    // Initialize logging: resolve log directory for environment-based routing
+    let _log_dir = utils::get_log_dir();
+
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(
