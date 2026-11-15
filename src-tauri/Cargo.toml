@@ -28,16 +28,3 @@ dirs = "5.0"
 open = "5.3"
 tauri-plugin-global-shortcut = "2"
 tauri-plugin-opener = "2"
-tracing = "0.1.35"
-tracing-subscriber = { version = "0.3.17", features = ["env-filter", "fmt", "time"] }
-tracing-appender = "0.2"
-
-[target.'cfg(windows)'.dependencies]
-windows-sys = { version = "0.59", features = [
-    "Win32_Foundation",
-    "Win32_Graphics_Gdi",
-    "Win32_Storage_FileSystem",
-    "Win32_System_Com",
-    "Win32_UI_Shell",
-    "Win32_UI_WindowsAndMessaging",
-]}

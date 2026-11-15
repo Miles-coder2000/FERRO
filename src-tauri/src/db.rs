@@ -87,7 +87,7 @@ impl Database {
         let folder_count: i64 = self
             .conn
             .query_row("SELECT COUNT(*) FROM pinned_folders", [], |r| r.get(0))
-            .unwrap_or(0);
+            .unwrap_or_else(|_| 0_i64);
 
         if folder_count == 0 {
             let candidates = [
@@ -125,7 +125,7 @@ impl Database {
                     path: row.get(2)?,
                     icon_path: row.get(3)?,
                     category: row.get(4)?,
-                    launch_count: row.get(5).unwrap_or(0),
+                    launch_count: row.get::<i64>(5).unwrap_or_else(|_| 0),
                     last_launched: row.get(6)?,
                 })
             })?
@@ -184,7 +184,7 @@ impl Database {
                     path: row.get(2)?,
                     file_count: 0,
                     total_size_bytes: 0,
-                    is_pinned: row.get(4).unwrap_or(0) == 1,
+                    is_pinned: row.get::<i64>(4).unwrap_or_else(|_| 0) == 1,
                     icon_name: row.get(5).ok(),
                 })
             })?

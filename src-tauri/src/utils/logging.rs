@@ -1,5 +1,5 @@
-use std::path::PathBuf;
 use std::fs;
+use std::path::PathBuf;
 
 /// Returns the application's log directory, creating it if needed.
 ///
@@ -7,9 +7,10 @@ use std::fs;
 /// 1. `$env:FERRO_LOG_DIR` if set (explicit user override)
 /// 2. `D:/FERRO/logs/runtime` if it exists or can be created (developer machine)
 /// 3. Platform-appropriate app data directory as fallback
-/// 
+///
 /// This function never fails - it will create directories as needed
 /// and fall back through progressively more permissive locations.
+
 pub fn log_dir() -> PathBuf {
     // Step 1: Check FERRO_LOG_DIR environment variable first
     if let Some(custom) = std::env::var_os("FERRO_LOG_DIR") {
@@ -29,7 +30,9 @@ pub fn log_dir() -> PathBuf {
     {
         // Windows: %LOCALAPPDATA%\com.ferro.launcher\logs
         if let Ok(local_app_data) = std::env::var("LOCALAPPDATA") {
-            let path = PathBuf::from(&local_app_data).join("com.ferro.launcher").join("logs");
+            let path = PathBuf::from(&local_app_data)
+                .join("com.ferro.launcher")
+                .join("logs");
             let _ = fs::create_dir_all(&path);
             return path;
         }

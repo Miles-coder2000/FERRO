@@ -1,0 +1,563 @@
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\FERRO\src-tauri\target\debug\incremental\build_script_build-0c355hd06sxmv\s-ho663obv4r-1pk47ou-working`
+
+warning: `ferro-launcher` (build script) generated 1 warning
+    Checking ferro-launcher v0.1.0 (D:\FERRO\src-tauri)
+error: expected expression, found keyword `mut`
+   --> src\db.rs:134:12
+    |
+134 |         Ok(mut apps)
+    |            ^^^ expected expression
+
+error: expected expression, found keyword `mut`
+   --> src\db.rs:193:12
+    |
+193 |         Ok(mut folders)
+    |            ^^^ expected expression
+
+error: expected expression, found keyword `mut`
+   --> src\db.rs:212:12
+    |
+212 |         Ok(mut contexts)
+    |            ^^^ expected expression
+
+error[E0433]: cannot find `__tauri_command_name_add_custom_game` in `indexer`
+  --> src\lib.rs:59:25
+   |
+59 |           .invoke_handler(tauri::generate_handler![
+   |  _________________________^
+60 | |             indexer::scan_installed_apps,
+61 | |             indexer::scan_game_libraries,
+62 | |             indexer::add_custom_game,
+...  |
+76 | |             telemetry::get_system_telemetry,
+77 | |         ])
+   | |_________^ could not find `__tauri_command_name_add_custom_game` in `indexer`
+   |
+   = note: this error originates in the macro `tauri::generate_handler` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: cannot find `__cmd__add_custom_game` in `indexer`
+  --> src\lib.rs:62:22
+   |
+62 |             indexer::add_custom_game,
+   |                      ^^^^^^^^^^^^^^^ could not find `__cmd__add_custom_game` in `indexer`
+
+error[E0433]: cannot find `__tauri_command_name_get_pinned_folders` in `indexer`
+  --> src\lib.rs:59:25
+   |
+59 |           .invoke_handler(tauri::generate_handler![
+   |  _________________________^
+60 | |             indexer::scan_installed_apps,
+61 | |             indexer::scan_game_libraries,
+62 | |             indexer::add_custom_game,
+...  |
+76 | |             telemetry::get_system_telemetry,
+77 | |         ])
+   | |_________^ could not find `__tauri_command_name_get_pinned_folders` in `indexer`
+   |
+   = note: this error originates in the macro `tauri::generate_handler` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: cannot find `__cmd__get_pinned_folders` in `indexer`
+  --> src\lib.rs:64:22
+   |
+64 |             indexer::get_pinned_folders,
+   |                      ^^^^^^^^^^^^^^^^^^ could not find `__cmd__get_pinned_folders` in `indexer`
+
+error[E0433]: cannot find `__tauri_command_name_pin_folder` in `indexer`
+  --> src\lib.rs:59:25
+   |
+59 |           .invoke_handler(tauri::generate_handler![
+   |  _________________________^
+60 | |             indexer::scan_installed_apps,
+61 | |             indexer::scan_game_libraries,
+62 | |             indexer::add_custom_game,
+...  |
+76 | |             telemetry::get_system_telemetry,
+77 | |         ])
+   | |_________^ could not find `__tauri_command_name_pin_folder` in `indexer`
+   |
+   = note: this error originates in the macro `tauri::generate_handler` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: cannot find `__cmd__pin_folder` in `indexer`
+  --> src\lib.rs:65:22
+   |
+65 |             indexer::pin_folder,
+   |                      ^^^^^^^^^^ could not find `__cmd__pin_folder` in `indexer`
+
+error[E0433]: cannot find `__tauri_command_name_unpin_folder` in `indexer`
+  --> src\lib.rs:59:25
+   |
+59 |           .invoke_handler(tauri::generate_handler![
+   |  _________________________^
+60 | |             indexer::scan_installed_apps,
+61 | |             indexer::scan_game_libraries,
+62 | |             indexer::add_custom_game,
+...  |
+76 | |             telemetry::get_system_telemetry,
+77 | |         ])
+   | |_________^ could not find `__tauri_command_name_unpin_folder` in `indexer`
+   |
+   = note: this error originates in the macro `tauri::generate_handler` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: cannot find `__cmd__unpin_folder` in `indexer`
+  --> src\lib.rs:66:22
+   |
+66 |             indexer::unpin_folder,
+   |                      ^^^^^^^^^^^^ could not find `__cmd__unpin_folder` in `indexer`
+
+error[E0433]: cannot find `__tauri_command_name_get_contexts` in `indexer`
+  --> src\lib.rs:59:25
+   |
+59 |           .invoke_handler(tauri::generate_handler![
+   |  _________________________^
+60 | |             indexer::scan_installed_apps,
+61 | |             indexer::scan_game_libraries,
+62 | |             indexer::add_custom_game,
+...  |
+76 | |             telemetry::get_system_telemetry,
+77 | |         ])
+   | |_________^ could not find `__tauri_command_name_get_contexts` in `indexer`
+   |
+   = note: this error originates in the macro `tauri::generate_handler` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: cannot find `__cmd__get_contexts` in `indexer`
+  --> src\lib.rs:67:22
+   |
+67 |             indexer::get_contexts,
+   |                      ^^^^^^^^^^^^ could not find `__cmd__get_contexts` in `indexer`
+
+error[E0433]: cannot find `__tauri_command_name_save_context` in `indexer`
+  --> src\lib.rs:59:25
+   |
+59 |           .invoke_handler(tauri::generate_handler![
+   |  _________________________^
+60 | |             indexer::scan_installed_apps,
+61 | |             indexer::scan_game_libraries,
+62 | |             indexer::add_custom_game,
+...  |
+76 | |             telemetry::get_system_telemetry,
+77 | |         ])
+   | |_________^ could not find `__tauri_command_name_save_context` in `indexer`
+   |
+   = note: this error originates in the macro `tauri::generate_handler` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: cannot find `__cmd__save_context` in `indexer`
+  --> src\lib.rs:68:22
+   |
+68 |             indexer::save_context,
+   |                      ^^^^^^^^^^^^ could not find `__cmd__save_context` in `indexer`
+
+error[E0433]: cannot find `__tauri_command_name_delete_context` in `indexer`
+  --> src\lib.rs:59:25
+   |
+59 |           .invoke_handler(tauri::generate_handler![
+   |  _________________________^
+60 | |             indexer::scan_installed_apps,
+61 | |             indexer::scan_game_libraries,
+62 | |             indexer::add_custom_game,
+...  |
+76 | |             telemetry::get_system_telemetry,
+77 | |         ])
+   | |_________^ could not find `__tauri_command_name_delete_context` in `indexer`
+   |
+   = note: this error originates in the macro `tauri::generate_handler` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: cannot find `__cmd__delete_context` in `indexer`
+  --> src\lib.rs:69:22
+   |
+69 |             indexer::delete_context,
+   |                      ^^^^^^^^^^^^^^ could not find `__cmd__delete_context` in `indexer`
+
+error[E0433]: cannot find `__tauri_command_name_watch_pinned_folders` in `watcher`
+  --> src\lib.rs:59:25
+   |
+59 |           .invoke_handler(tauri::generate_handler![
+   |  _________________________^
+60 | |             indexer::scan_installed_apps,
+61 | |             indexer::scan_game_libraries,
+62 | |             indexer::add_custom_game,
+...  |
+76 | |             telemetry::get_system_telemetry,
+77 | |         ])
+   | |_________^ could not find `__tauri_command_name_watch_pinned_folders` in `watcher`
+   |
+   = note: this error originates in the macro `tauri::generate_handler` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: cannot find `__cmd__watch_pinned_folders` in `watcher`
+  --> src\lib.rs:71:22
+   |
+71 |             watcher::watch_pinned_folders,
+   |                      ^^^^^^^^^^^^^^^^^^^^ could not find `__cmd__watch_pinned_folders` in `watcher`
+
+warning: unused import: `GameEntry`
+ --> src\db.rs:1:59
+  |
+1 | use crate::models::{AppEntry, ContextProfile, FolderCard, GameEntry};
+  |                                                           ^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `ContextProfile`
+ --> src\indexer.rs:2:31
+  |
+2 | use crate::models::{AppEntry, ContextProfile, FolderCard, GameEntry};
+  |                               ^^^^^^^^^^^^^^
+
+warning: unused import: `crate::telemetry::TelemetryState`
+ --> src\indexer.rs:3:5
+  |
+3 | use crate::telemetry::TelemetryState;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `serde_json::Value`
+ --> src\indexer.rs:5:5
+  |
+5 | use serde_json::Value;
+  |     ^^^^^^^^^^^^^^^^^
+
+warning: unused import: `std::collections::HashSet`
+ --> src\indexer.rs:7:5
+  |
+7 | use std::collections::HashSet;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `PathBuf`
+ --> src\indexer.rs:9:23
+  |
+9 | use std::path::{Path, PathBuf};
+  |                       ^^^^^^^
+
+warning: unused import: `Manager`
+  --> src\indexer.rs:11:33
+   |
+11 | use tauri::{AppHandle, Emitter, Manager, State};
+   |                                 ^^^^^^^
+
+warning: unused import: `walkdir::WalkDir`
+  --> src\indexer.rs:12:5
+   |
+12 | use walkdir::WalkDir;
+   |     ^^^^^^^^^^^^^^^^
+
+warning: unused import: `std::os::windows::ffi::OsStrExt`
+  --> src\indexer.rs:30:9
+   |
+30 |     use std::os::windows::ffi::OsStrExt;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `DeleteDC`, `DeleteObject`, and `GetDIBits`
+  --> src\indexer.rs:32:29
+   |
+32 |         CreateCompatibleDC, DeleteDC, DeleteObject, GetDIBits, BITMAPINFO, BITMAPINFOHEADER,
+   |                             ^^^^^^^^  ^^^^^^^^^^^^  ^^^^^^^^^
+
+warning: unused import: `crate::models::FolderUpdatePayload`
+ --> src\watcher.rs:1:5
+  |
+1 | use crate::models::FolderUpdatePayload;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `Config`, `Event`, and `RecursiveMode`
+ --> src\watcher.rs:2:14
+  |
+2 | use notify::{Config, Event, RecommendedWatcher, RecursiveMode, Watcher};
+  |              ^^^^^^  ^^^^^                      ^^^^^^^^^^^^^
+
+warning: unused import: `std::path::Path`
+ --> src\watcher.rs:3:5
+  |
+3 | use std::path::Path;
+  |     ^^^^^^^^^^^^^^^
+
+warning: unused imports: `AppHandle`, `Emitter`, and `State`
+ --> src\watcher.rs:5:13
+  |
+5 | use tauri::{AppHandle, Emitter, State};
+  |             ^^^^^^^^^  ^^^^^^^  ^^^^^
+
+warning: unused import: `logging::log_dir`
+ --> src\utils\mod.rs:8:9
+  |
+8 | pub use logging::log_dir;
+  |         ^^^^^^^^^^^^^^^^
+
+error[E0277]: `?` couldn't convert the error to `std::string::String`
+   --> src\db.rs:120:106
+    |
+120 |             .prepare("SELECT id, name, path, icon_path, category, launch_count, last_launched FROM apps")?
+    |              --------------------------------------------------------------------------------------------^ the trait `std::convert::From<rusqlite::Error>` is not implemented for `std::string::String`
+    |              |
+    |              this can't be annotated with `?` because it has type `Result<_, rusqlite::Error>`
+    |
+    = note: the question mark operation (`?`) implicitly performs a conversion on the error value using the `From` trait
+    = help: `std::string::String` implements trait `std::convert::From<T>`:
+              std::convert::From<&mut str>
+              std::convert::From<&std::string::String>
+              std::convert::From<&str>
+              std::convert::From<AssetKey>
+              std::convert::From<Box<str>>
+              std::convert::From<Cow<'_, str>>
+              std::convert::From<char>
+              std::convert::From<exr::meta::attribute::Text>
+            and 2 others
+
+error[E0277]: `?` couldn't convert the error to `std::string::String`
+   --> src\db.rs:131:15
+    |
+121 |               .query_map([], |row| {
+    |  ______________-
+122 | |                 Ok(AppEntry {
+123 | |                     id: row.get(0)?,
+124 | |                     name: row.get(1)?,
+...   |
+130 | |                 })
+131 | |             })?
+    | |              -^ the trait `std::convert::From<rusqlite::Error>` is not implemented for `std::string::String`
+    | |______________|
+    |                this can't be annotated with `?` because it has type `Result<_, rusqlite::Error>`
+    |
+    = note: the question mark operation (`?`) implicitly performs a conversion on the error value using the `From` trait
+    = help: `std::string::String` implements trait `std::convert::From<T>`:
+              std::convert::From<&mut str>
+              std::convert::From<&std::string::String>
+              std::convert::From<&str>
+              std::convert::From<AssetKey>
+              std::convert::From<Box<str>>
+              std::convert::From<Cow<'_, str>>
+              std::convert::From<char>
+              std::convert::From<exr::meta::attribute::Text>
+            and 2 others
+
+error[E0277]: `?` couldn't convert the error to `std::string::String`
+   --> src\db.rs:179:88
+    |
+179 |             .prepare("SELECT id, name, path, is_pinned, icon_name FROM pinned_folders")?
+    |              --------------------------------------------------------------------------^ the trait `std::convert::From<rusqlite::Error>` is not implemented for `std::string::String`
+    |              |
+    |              this can't be annotated with `?` because it has type `Result<_, rusqlite::Error>`
+    |
+    = note: the question mark operation (`?`) implicitly performs a conversion on the error value using the `From` trait
+    = help: `std::string::String` implements trait `std::convert::From<T>`:
+              std::convert::From<&mut str>
+              std::convert::From<&std::string::String>
+              std::convert::From<&str>
+              std::convert::From<AssetKey>
+              std::convert::From<Box<str>>
+              std::convert::From<Cow<'_, str>>
+              std::convert::From<char>
+              std::convert::From<exr::meta::attribute::Text>
+            and 2 others
+
+error[E0277]: `?` couldn't convert the error to `std::string::String`
+   --> src\db.rs:190:15
+    |
+180 |               .query_map([], |row| {
+    |  ______________-
+181 | |                 Ok(FolderCard {
+182 | |                     id: row.get(0)?,
+183 | |                     name: row.get(1)?,
+...   |
+189 | |                 })
+190 | |             })?
+    | |              -^ the trait `std::convert::From<rusqlite::Error>` is not implemented for `std::string::String`
+    | |______________|
+    |                this can't be annotated with `?` because it has type `Result<_, rusqlite::Error>`
+    |
+    = note: the question mark operation (`?`) implicitly performs a conversion on the error value using the `From` trait
+    = help: `std::string::String` implements trait `std::convert::From<T>`:
+              std::convert::From<&mut str>
+              std::convert::From<&std::string::String>
+              std::convert::From<&str>
+              std::convert::From<AssetKey>
+              std::convert::From<Box<str>>
+              std::convert::From<Cow<'_, str>>
+              std::convert::From<char>
+              std::convert::From<exr::meta::attribute::Text>
+            and 2 others
+
+error[E0277]: `?` couldn't convert the error to `std::string::String`
+   --> src\db.rs:199:104
+    |
+199 |             .prepare("SELECT id, name, description, app_ids, folder_paths, shortcut_key FROM contexts")?
+    |              ------------------------------------------------------------------------------------------^ the trait `std::convert::From<rusqlite::Error>` is not implemented for `std::string::String`
+    |              |
+    |              this can't be annotated with `?` because it has type `Result<_, rusqlite::Error>`
+    |
+    = note: the question mark operation (`?`) implicitly performs a conversion on the error value using the `From` trait
+    = help: `std::string::String` implements trait `std::convert::From<T>`:
+              std::convert::From<&mut str>
+              std::convert::From<&std::string::String>
+              std::convert::From<&str>
+              std::convert::From<AssetKey>
+              std::convert::From<Box<str>>
+              std::convert::From<Cow<'_, str>>
+              std::convert::From<char>
+              std::convert::From<exr::meta::attribute::Text>
+            and 2 others
+
+error[E0593]: closure is expected to take 1 argument, but it takes 0 arguments
+   --> src\db.rs:205:41
+    |
+205 |                     app_ids: row.get(3).unwrap_or_else(|| "[]".to_string()),
+    |                                         ^^^^^^^^^^^^^^ -- takes 0 arguments
+    |                                         |
+    |                                         expected closure that takes 1 argument
+    |
+help: consider changing the closure to take and ignore the expected argument
+    |
+205 |                     app_ids: row.get(3).unwrap_or_else(|_| "[]".to_string()),
+    |                                                         +
+
+error[E0593]: closure is expected to take 1 argument, but it takes 0 arguments
+   --> src\db.rs:206:46
+    |
+206 |                     folder_paths: row.get(4).unwrap_or_else(|| "[]".to_string()),
+    |                                              ^^^^^^^^^^^^^^ -- takes 0 arguments
+    |                                              |
+    |                                              expected closure that takes 1 argument
+    |
+help: consider changing the closure to take and ignore the expected argument
+    |
+206 |                     folder_paths: row.get(4).unwrap_or_else(|_| "[]".to_string()),
+    |                                                              +
+
+error[E0277]: `?` couldn't convert the error to `std::string::String`
+   --> src\db.rs:209:15
+    |
+200 |               .query_map([], |row| {
+    |  ______________-
+201 | |                 Ok(ContextProfile {
+202 | |                     id: row.get(0)?,
+203 | |                     name: row.get(1)?,
+...   |
+208 | |                 })
+209 | |             })?
+    | |              -^ the trait `std::convert::From<rusqlite::Error>` is not implemented for `std::string::String`
+    | |______________|
+    |                this can't be annotated with `?` because it has type `Result<_, rusqlite::Error>`
+    |
+    = note: the question mark operation (`?`) implicitly performs a conversion on the error value using the `From` trait
+    = help: `std::string::String` implements trait `std::convert::From<T>`:
+              std::convert::From<&mut str>
+              std::convert::From<&std::string::String>
+              std::convert::From<&str>
+              std::convert::From<AssetKey>
+              std::convert::From<Box<str>>
+              std::convert::From<Cow<'_, str>>
+              std::convert::From<char>
+              std::convert::From<exr::meta::attribute::Text>
+            and 2 others
+
+error[E0277]: `?` couldn't convert the error to `std::string::String`
+   --> src\db.rs:271:91
+    |
+271 |             .prepare("SELECT id, kind FROM search_fts WHERE search_fts MATCH ?1 LIMIT 25")?
+    |              -----------------------------------------------------------------------------^ the trait `std::convert::From<rusqlite::Error>` is not implemented for `std::string::String`
+    |              |
+    |              this can't be annotated with `?` because it has type `Result<_, rusqlite::Error>`
+    |
+    = note: the question mark operation (`?`) implicitly performs a conversion on the error value using the `From` trait
+    = help: `std::string::String` implements trait `std::convert::From<T>`:
+              std::convert::From<&mut str>
+              std::convert::From<&std::string::String>
+              std::convert::From<&str>
+              std::convert::From<AssetKey>
+              std::convert::From<Box<str>>
+              std::convert::From<Cow<'_, str>>
+              std::convert::From<char>
+              std::convert::From<exr::meta::attribute::Text>
+            and 2 others
+
+error[E0599]: no method named `map_err` found for struct `Statement<'conn>` in the current scope
+   --> src\db.rs:272:14
+    |
+269 |           let mut stmt = self
+    |  ________________________-
+270 | |             .conn
+271 | |             .prepare("SELECT id, kind FROM search_fts WHERE search_fts MATCH ?1 LIMIT 25")?
+272 | |             .map_err(|e| e.to_string())?;
+    | |             -^^^^^^^ method not found in `Statement<'_>`
+    | |_____________|
+    |
+
+error[E0277]: the trait bound `[i32]: EncodableLayout` is not satisfied
+    --> src\indexer.rs:69:17
+     |
+  69 |             img.save(&out_file).map_err(|e| e.to_string())?;
+     |                 ^^^^ the trait `EncodableLayout` is not implemented for `[i32]`
+     |
+help: the following other types implement trait `EncodableLayout`
+    --> C:\Users\DELL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\image-0.25.10\src\traits.rs:18:1
+     |
+  18 | impl EncodableLayout for [u8] {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `[u8]`
+...
+  24 | impl EncodableLayout for [u16] {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `[u16]`
+...
+  30 | impl EncodableLayout for [f32] {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `[f32]`
+note: required by a bound in `ImageBuffer::<P, Container>::save`
+    --> C:\Users\DELL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\image-0.25.10\src\images\buffer.rs:1042:20
+     |
+1042 |     [P::Subpixel]: EncodableLayout,
+     |                    ^^^^^^^^^^^^^^^ required by this bound in `ImageBuffer::<P, Container>::save`
+...
+1048 |     pub fn save<Q>(&self, path: Q) -> ImageResult<()>
+     |            ---- required by a bound in this associated function
+
+error[E0277]: the trait bound `image::Rgba<i32>: PixelWithColorType` is not satisfied
+    --> src\indexer.rs:69:17
+     |
+  69 |             img.save(&out_file).map_err(|e| e.to_string())?;
+     |                 ^^^^ the trait `PixelWithColorType` is not implemented for `image::Rgba<i32>`
+     |
+help: the following other types implement trait `PixelWithColorType`
+    --> C:\Users\DELL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\image-0.25.10\src\traits.rs:192:1
+     |
+ 192 | impl PixelWithColorType for Rgba<u8> {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `image::Rgba<u8>`
+...
+ 195 | impl PixelWithColorType for Rgba<u16> {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `image::Rgba<u16>`
+...
+ 198 | impl PixelWithColorType for Rgba<f32> {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `image::Rgba<f32>`
+note: required by a bound in `ImageBuffer::<P, Container>::save`
+    --> C:\Users\DELL\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\image-0.25.10\src\images\buffer.rs:1051:12
+     |
+1048 |     pub fn save<Q>(&self, path: Q) -> ImageResult<()>
+     |            ---- required by a bound in this associated function
+...
+1051 |         P: PixelWithColorType,
+     |            ^^^^^^^^^^^^^^^^^^ required by this bound in `ImageBuffer::<P, Container>::save`
+
+error[E0599]: no method named `increment_launch_count` found for struct `std::sync::MutexGuard<'_, Database>` in the current scope
+  --> src\launcher.rs:92:12
+   |
+92 |         db.increment_launch_count(&target_path);
+   |            ^^^^^^^^^^^^^^^^^^^^^^ method not found in `std::sync::MutexGuard<'_, Database>`
+
+warning: unused import: `Watcher`
+ --> src\watcher.rs:2:64
+  |
+2 | use notify::{Config, Event, RecommendedWatcher, RecursiveMode, Watcher};
+  |                                                                ^^^^^^^
+
+warning: unused variable: `db`
+   --> src\indexer.rs:159:9
+    |
+159 |     let db = db_state.lock().map_err(|e| e.to_string())?;
+    |         ^^ help: if this is intentional, prefix it with an underscore: `_db`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `state`
+   --> src\indexer.rs:209:5
+    |
+209 |     state: State<'_, RecommendedWatcher>,
+    |     ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+
+Some errors have detailed explanations: E0277, E0433, E0593, E0599.
+For more information about an error, try `rustc --explain E0277`.
+warning: `ferro-launcher` (lib) generated 18 warnings
+error: could not compile `ferro-launcher` (lib) due to 32 previous errors; 18 warnings emitted
