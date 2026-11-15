@@ -1,0 +1,16 @@
+node_modules
+dist
+src-tauri/target
+src-tauri/WixTools
+src-tauri/dev-data/*.db*
+.stress_sandbox
+.env
+.env.*
+*.exe
+*.msi
+*.nsis
+*.log
+
+# Centralized logs — track folder structure via .gitkeep, ignore log content
+logs/**/*.log
+!logs/**/.gitkeep
